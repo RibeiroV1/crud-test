@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRUD Flask</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Cadastro de Usuários</h1>
+
+        <form action="/criar" method="POST" class="formulario">
+
+            <input
+                type="text"
+                name="nome"
+                placeholder="Nome"
+                required
+            >
+
+            <input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                required
+            >
+
+            <button type="submit">
+                Cadastrar
+            </button>
+
+        </form>
+
+        <section class="usuarios">
+
+            <h2>Usuários cadastrados</h2>
+
+            {% if usuarios %}
+
+                {% for usuario in usuarios %}
+
+                    <div class="usuario">
+
+                        <form
+                            action="/editar/{{ usuario.id }}"
+                            method="POST"
+                            class="editar"
+                        >
+
+                            <input
+                                type="text"
+                                name="nome"
+                                value="{{ usuario.nome }}"
+                                required
+                            >
+
+                            <input
+                                type="email"
+                                name="email"
+                                value="{{ usuario.email }}"
+                                required
+                            >
+
+                            <button type="submit">
+                                Salvar
+                            </button>
+
+                        </form>
+
+                        <a
+                            href="/excluir/{{ usuario.id }}"
+                            class="excluir"
+                            onclick="return confirm('Deseja excluir este usuário?')"
+                        >
+                            Excluir
+                        </a>
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>Nenhum usuário cadastrado.</p>
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+</body>
+</html>
