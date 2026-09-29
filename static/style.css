@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.formulario,
+.editar {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario input {
+    flex: 1;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #444;
+}
+
+.usuarios {
+    margin-top: 40px;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.editar {
+    flex: 1;
+}
+
+.editar input {
+    flex: 1;
+}
+
+.excluir {
+    color: #d00;
+    text-decoration: none;
+}
+
+.excluir:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+
+    .formulario,
+    .editar,
+    .usuario {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+}
